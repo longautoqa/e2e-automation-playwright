@@ -55,4 +55,4 @@ export async function getRandomOutOfStockProduct() {
 	const outOfStockProducts = products.filter((product) => !product.in_stock);
 
 	return _.sample(outOfStockProducts);
-} 
+}

@@ -35,4 +35,4 @@ export async function addProductToCart(
 		intervals: [1_000, 2_000, 5_000],
 		timeout: 10_000,
 	});
-} 
+}
