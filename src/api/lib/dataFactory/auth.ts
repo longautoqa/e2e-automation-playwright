@@ -3,8 +3,8 @@ import { expect } from '@fixtures/baseAPIFixture';
 import { request } from '@playwright/test';
 import { RegisterUser } from '@api/user/types';
 import { en, Faker } from '@faker-js/faker';
-import { minusYears } from 'utils/date';
-import { randomEmail, randomPassword } from 'utils/randomize';
+import { DateUtils } from 'src/shared/utils/date';
+import { RandomUtils } from 'src/shared/utils/randomize';
 
 const faker = new Faker({ locale: en });
 
@@ -12,10 +12,10 @@ export async function createRandomUserBody(email?: string, password?: string) {
 	const userBody: RegisterUser = {
 		first_name: faker.person.firstName(),
 		last_name: faker.person.lastName(),
-		dob: minusYears(30),
+		dob: DateUtils.minusYears(30),
 		phone: '0987654321',
-		email: email || randomEmail(),
-		password: password || randomPassword(),
+		email: email || RandomUtils.randomEmail(),
+		password: password || RandomUtils.randomPassword(),
 		address: {
 			street: faker.location.streetAddress({ useFullAddress: true }),
 			city: faker.location.city(),

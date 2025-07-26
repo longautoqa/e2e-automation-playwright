@@ -6,7 +6,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 import dotenv from 'dotenv';
 import path from 'path';
-import Env from 'utils/env';
+import Env from 'src/shared/utils/env';
 
 const environment = process.env.TEST_ENV || 'development';
 const envFile = `.env.${environment}`;

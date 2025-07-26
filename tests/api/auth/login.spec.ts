@@ -4,7 +4,7 @@ import { extractField } from 'src/api/lib/helpers/responseHelpers';
 import { validateJsonSchema } from 'src/api/lib/helpers/validateJsonSchema';
 import UserApi from 'src/api/user/userApi';
 import { TestType } from 'src/types';
-import { randomPassword, randomString } from 'utils/randomize';
+import { RandomUtils } from 'src/shared/utils/randomize';
 
 test.describe('Login user @auth', async () => {
 	[
@@ -46,7 +46,7 @@ test.describe('Login user @auth', async () => {
 		},
 		async ({ request }) => {
 			const userApi = new UserApi(request);
-			const resp = await userApi.login(Env.CUSTOMER_01_EMAIL, randomPassword());
+			const resp = await userApi.login(Env.CUSTOMER_01_EMAIL, RandomUtils.randomPassword());
 			expect(resp).toHaveUnauthorizedStatus();
 
 			const errorField = await extractField('error', resp);
@@ -64,7 +64,7 @@ test.describe('Login user @auth', async () => {
 		},
 		async ({ request }) => {
 			const userApi = new UserApi(request);
-			const resp = await userApi.login(randomString(), randomString());
+			const resp = await userApi.login(RandomUtils.randomString(), RandomUtils.randomString());
 			expect(resp).toHaveUnauthorizedStatus();
 
 			const errorField = await extractField('error', resp);
@@ -82,7 +82,7 @@ test.describe('Login user @auth', async () => {
 		},
 		async ({ request }) => {
 			const userApi = new UserApi(request);
-			const resp = await userApi.login(randomString(), Env.ADMIN_PASSWORD);
+			const resp = await userApi.login(RandomUtils.randomString(), Env.ADMIN_PASSWORD);
 			expect(resp).toHaveUnauthorizedStatus();
 
 			const errorField = await extractField('error', resp);
