@@ -1,4 +1,4 @@
-import { Address } from '@api/user/types';
+import { Address } from '@apis/user/types';
 
 export default class AddressData {
 	static readonly address01: Address = {

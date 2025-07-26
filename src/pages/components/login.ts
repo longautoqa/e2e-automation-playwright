@@ -1,6 +1,5 @@
 import BasePage from '@pages/basePage';
 import { expect, Page } from '@playwright/test';
-import Env from '@api/lib/helpers/env';
 import { step } from 'playwright-helpers';
 
 export default class LoginComponent extends BasePage {

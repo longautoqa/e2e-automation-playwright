@@ -1,9 +1,9 @@
 import { expect, test } from '@fixtures/baseAPIFixture';
 import { createRandomUserBody } from '@testDataFactory/auth-data-factory';
-import { createHeaders } from '@api/lib/helpers/authHelpers';
+import { createHeaders } from '@apis/lib/helpers/authHelpers';
 import { extractField } from '@apiHelpers/responseHelpers';
 import { validateJsonSchema } from '@apiHelpers/validateJsonSchema';
-import UserApi from 'src/api/user/userApi';
+import UserApi from 'src/apis/user/userApi';
 import { TestType } from 'src/types';
 
 test.describe('Register user API @auth', async () => {
