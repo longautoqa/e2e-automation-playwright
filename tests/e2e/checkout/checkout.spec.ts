@@ -1,13 +1,13 @@
 import { test } from '@fixtures/baseUIFixture';
 
-import AddressData from '@testDataUiCommon/address-data';
-import ProductData from '@testDataUiProduct/product-data';
+import AddressData from '@testDataStaticCommon/address-data';
+import ProductData from '@testDataStaticProduct/product-data';
 import {
 	PaymentMethodLabel,
 	MonthlyInstallmentLabel,
 } from '@pages/checkout/types';
 import { TestType } from 'src/types';
-import PaymentMethodData from '@testDataUiPayment/payment-method-data';
+import PaymentMethodData from '@testDataStaticPayment/payment-method-data';
 
 test.describe('Checkout order feature with logged in user @checkout', async () => {
 	test.use({ storageState: './playwright/.auth/customer01.json' });
