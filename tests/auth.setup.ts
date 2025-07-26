@@ -2,7 +2,7 @@ import { test as setup } from '@fixtures/baseUIFixture';
 import { expect } from '@fixtures/baseAPIFixture';
 
 import UserApi from '@apis/user/userApi';
-import Env from '@apis/lib/helpers/env';
+import Env from '@utils/env';
 
 const customer1AuthFile = './playwright/.auth/customer01.json';
 const customer2AuthFile = './playwright/.auth/customer02.json';

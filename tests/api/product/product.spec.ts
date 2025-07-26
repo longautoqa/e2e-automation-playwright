@@ -1,5 +1,5 @@
-import { extractField } from '@apiHelpers/responseHelpers';
-import { validateJsonSchema } from '@apiHelpers/validateJsonSchema';
+import { extractField } from '@apiUtils/responseUtils';
+import { validateJsonSchema } from '@apiUtils/validateJsonSchema';
 import { test, expect } from '@fixtures/baseUIFixture';
 import ProductApi from '@apis/product/productApi';
 import { TestType } from 'src/types';

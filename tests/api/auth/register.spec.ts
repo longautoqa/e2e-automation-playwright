@@ -1,8 +1,8 @@
 import { expect, test } from '@fixtures/baseAPIFixture';
 import { createRandomUserBody } from '@testDataFactory/auth-data-factory';
-import { createHeaders } from '@apis/lib/helpers/authHelpers';
-import { extractField } from '@apiHelpers/responseHelpers';
-import { validateJsonSchema } from '@apiHelpers/validateJsonSchema';
+import { createHeaders } from '@apiUtils/authUtils';
+import { extractField } from '@apiUtils/responseUtils';
+import { validateJsonSchema } from '@apiUtils/validateJsonSchema';
 import UserApi from '@apis/user/userApi';
 import { TestType } from 'src/types';
 

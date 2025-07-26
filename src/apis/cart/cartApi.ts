@@ -1,7 +1,6 @@
 import BaseApi, { Headers } from '@apis/baseAPI';
 import { APIRequestContext } from '@playwright/test';
-
-import Env from '@apis/lib/helpers/env';
+import Env from '@utils/env';
 import { AddProductToCart } from './types';
 
 export default class CartApi extends BaseApi {
