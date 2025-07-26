@@ -1,8 +1,8 @@
 import { expect, test } from '@fixtures/baseAPIFixture';
-import Env from '@api/lib/helpers/env';
-import { extractField } from 'src/api/lib/helpers/responseHelpers';
-import { validateJsonSchema } from 'src/api/lib/helpers/validateJsonSchema';
-import UserApi from 'src/api/user/userApi';
+import Env from '@apis/lib/helpers/env';
+import { extractField } from 'src/apis/lib/helpers/responseHelpers';
+import { validateJsonSchema } from 'src/apis/lib/helpers/validateJsonSchema';
+import UserApi from 'src/apis/user/userApi';
 import { TestType } from 'src/types';
 import { RandomUtils } from '@utils/randomize';
 

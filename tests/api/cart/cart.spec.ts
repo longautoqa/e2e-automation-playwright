@@ -1,13 +1,13 @@
 import { expect, test } from '@fixtures/baseUIFixture';
-import CartApi from 'src/api/cart/cartApi';
+import CartApi from 'src/apis/cart/cartApi';
 import { createCart } from '@testDataFactory/cart-data-factory';
-import { extractField } from 'src/api/lib/helpers/responseHelpers';
+import { extractField } from 'src/apis/lib/helpers/responseHelpers';
 import { getRandomInStockProduct } from '@testDataFactory/product-data-factory';
 import { validateJsonSchema } from '@apiHelpers/validateJsonSchema';
 import { RandomUtils } from '@utils/randomize';
-import { createHeaders } from '@api/lib/helpers/authHelpers';
-import Env from '@api/lib/helpers/env';
-import { Headers } from '@api/baseAPI';
+import { createHeaders } from '@apis/lib/helpers/authHelpers';
+import Env from '@apis/lib/helpers/env';
+import { Headers } from '@apis/baseAPI';
 
 test.describe('Cart API feature', async () => {
 	let headers: Headers;

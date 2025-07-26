@@ -1,7 +1,7 @@
-import UserApi from '@api/user/userApi';
+import UserApi from '@apis/user/userApi';
 import { expect } from '@fixtures/baseAPIFixture';
 import { request } from '@playwright/test';
-import { RegisterUser } from '@api/user/types';
+import { RegisterUser } from '@apis/user/types';
 import { en, Faker } from '@faker-js/faker';
 import { DateUtils } from '@utils/date';
 import { RandomUtils } from '@utils/randomize';

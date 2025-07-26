@@ -1,7 +1,7 @@
 import BasePage from '@pages/basePage';
 import { expect, Page } from '@playwright/test';
 import { step } from 'playwright-helpers';
-import { Address } from 'src/api/user/types';
+import { Address } from 'src/apis/user/types';
 
 export default class AddressFormComponent extends BasePage {
 	constructor(page: Page) {

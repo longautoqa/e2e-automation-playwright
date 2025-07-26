@@ -1,4 +1,4 @@
-import UserApi from '@api/user/userApi';
+import UserApi from '@apis/user/userApi';
 import { expect, request } from '@playwright/test';
 
 export async function getAccessToken(email: string, password: string) {

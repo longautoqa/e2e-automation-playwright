@@ -1,9 +1,9 @@
 import { expect } from '@fixtures/baseAPIFixture';
 import { request } from '@playwright/test';
-import CartApi from 'src/api/cart/cartApi';
-import { extractField } from '@api/lib/helpers/responseHelpers';
-import { AddProductToCart } from '@api/cart/types';
-import { Headers } from '@api/baseAPI';
+import CartApi from 'src/apis/cart/cartApi';
+import { extractField } from '@apis/lib/helpers/responseHelpers';
+import { AddProductToCart } from '@apis/cart/types';
+import { Headers } from '@apis/baseAPI';
 
 export async function createCart(headers: Headers) {
 	let cartId: string;

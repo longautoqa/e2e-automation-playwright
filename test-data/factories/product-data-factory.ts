@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 import { expect } from '@fixtures/baseAPIFixture';
 import { request } from '@playwright/test';
-import ProductApi from 'src/api/product/productApi';
+import ProductApi from 'src/apis/product/productApi';
 
 // Get list products on 1st page
 async function getListProducts() {
