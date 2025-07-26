@@ -1,4 +1,4 @@
-import test, { Page } from '@playwright/test';
+import { test, Page } from '@playwright/test';
 import { Options } from './types';
 
 export async function mockInvoicesResponse(options: Options, page: Page) {

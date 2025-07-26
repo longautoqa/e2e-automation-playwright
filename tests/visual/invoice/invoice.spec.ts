@@ -2,7 +2,7 @@ import { test, expect } from '@fixtures/baseUIFixture';
 import {
 	mockInvoicesResponse,
 	mockInvoiceResponse,
-} from 'src/mock-api/common-mock-api';
+} from '@mock/commonMockApi';
 import invoices from '../fixtures/invoices.json';
 
 test.describe('[Visual tests] Invoice feature', async () => {
