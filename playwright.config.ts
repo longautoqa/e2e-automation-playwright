@@ -8,10 +8,10 @@ import dotenv from 'dotenv';
 import path from 'path';
 import Env from '@utils/env';
 
-const environment = process.env.TEST_ENV || 'development';
+const environment = process.env.TEST_ENV ?? 'development';
 const envFile = `.env.${environment}`;
 
-const browser = Env.BROWSER || 'Desktop Chrome';
+const browser = Env.BROWSER ?? 'Desktop Chrome';
 
 dotenv.config({
 	path: path.resolve(__dirname, envFile),
