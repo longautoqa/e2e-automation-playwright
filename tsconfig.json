@@ -23,7 +23,7 @@
 			"@testDataUiPayment/*": ["test-data/fixtures/ui/payment/*"],
 			"@testDataUiCommon/*": ["test-data/fixtures/ui/common/*"],
 			"@testDataVisual/*": ["test-data/fixtures/visual/*"],
-			"@testDataFactory/*": ["test-data/fixtures/factory/*"]
+			"@testDataFactory/*": ["test-data/factories/*"]
 		}
 	}
 }
