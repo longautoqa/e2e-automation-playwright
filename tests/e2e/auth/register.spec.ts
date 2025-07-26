@@ -1,4 +1,4 @@
-import { createRandomUserBody } from '@api/lib/dataFactory/auth';
+import { createRandomUserBody } from '@testDataFactory/auth-data-factory';
 import { test } from '@fixtures/baseUIFixture';
 import { TestType } from 'src/types';
 

@@ -19,7 +19,8 @@
 			"@testData/*": ["test-data/fixtures/*"],
 			"@testDataApi/*": ["test-data/fixtures/api/*"],
 			"@testDataUi/*": ["test-data/fixtures/ui/*"],
-			"@testDataVisual/*": ["test-data/fixtures/visual/*"]
+			"@testDataVisual/*": ["test-data/fixtures/visual/*"],
+			"@testDataFactory/*": ["test-data/fixtures/factory/*"]
 		}
 	}
 }

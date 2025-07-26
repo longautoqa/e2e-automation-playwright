@@ -1,7 +1,7 @@
 import { expect } from '@fixtures/baseAPIFixture';
 import { request } from '@playwright/test';
 import CartApi from 'src/api/cart/cartApi';
-import { extractField } from '../helpers/responseHelpers';
+import { extractField } from '@api/lib/helpers/responseHelpers';
 import { AddProductToCart } from '@api/cart/types';
 import { Headers } from '@api/baseAPI';
 
@@ -35,4 +35,4 @@ export async function addProductToCart(
 		intervals: [1_000, 2_000, 5_000],
 		timeout: 10_000,
 	});
-}
+} 
