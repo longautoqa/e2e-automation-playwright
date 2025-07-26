@@ -7,7 +7,7 @@ import LoginPage from '@pages/login/loginPage';
 import ProductPage from '@pages/product/productPage';
 import RegisterPage from '@pages/register/registerPage';
 import { expect, Page } from '@playwright/test';
-import Env from '@apis/lib/helpers/env';
+import Env from '@utils/env';
 import { step } from 'playwright-helpers';
 
 export default class NavigationComponent extends BasePage {

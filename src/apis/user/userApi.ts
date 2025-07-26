@@ -1,5 +1,5 @@
 import { APIRequestContext } from '@playwright/test';
-import Env from '@apis/lib/helpers/env';
+import Env from '@utils/env';
 import { RegisterUser } from './types';
 import BaseApi, { Headers } from '../baseAPI';
 

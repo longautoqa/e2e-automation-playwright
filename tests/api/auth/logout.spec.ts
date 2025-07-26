@@ -1,7 +1,7 @@
-import { createHeaders } from '@apis/lib/helpers/authHelpers';
-import Env from '@apis/lib/helpers/env';
+import { createHeaders } from '@apiUtils/authUtils';
+import Env from '@utils/env';
 import { expect, test } from '@fixtures/baseAPIFixture';
-import { extractField } from '@apis/lib/helpers/responseHelpers';
+import { extractField } from '@apiUtils/responseUtils';
 import UserApi from '@apis/user/userApi';
 import { TestType } from 'src/types';
 

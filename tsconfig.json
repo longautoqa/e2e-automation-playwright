@@ -12,7 +12,7 @@
 			"@components/*": ["src/pages/components/*"],
 			"@resources/*": ["tests/api/textResources/*"],
 			"@dataFactory/*": ["src/apis/lib/dataFactory/*"],
-			"@apiHelpers/*": ["src/apis/lib/helpers/*"],
+			"@apiUtils/*": ["src/apis/lib/utils/*"],
 			"@apiExpect/*": ["src/apis/lib/expect/*"],
 			"@utils/*": ["src/shared/utils/*"],
 			"@mock/*": ["src/shared/utils/mock/*"],
