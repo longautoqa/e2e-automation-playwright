@@ -1,6 +1,6 @@
 import { expect } from '@fixtures/baseAPIFixture';
 import { request } from '@playwright/test';
-import CartApi from 'src/apis/cart/cartApi';
+import CartApi from '@apis/cart/cartApi';
 import { extractField } from '@apis/lib/helpers/responseHelpers';
 import { AddProductToCart } from '@apis/cart/types';
 import { Headers } from '@apis/baseAPI';

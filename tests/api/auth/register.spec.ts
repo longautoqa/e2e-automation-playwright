@@ -3,7 +3,7 @@ import { createRandomUserBody } from '@testDataFactory/auth-data-factory';
 import { createHeaders } from '@apis/lib/helpers/authHelpers';
 import { extractField } from '@apiHelpers/responseHelpers';
 import { validateJsonSchema } from '@apiHelpers/validateJsonSchema';
-import UserApi from 'src/apis/user/userApi';
+import UserApi from '@apis/user/userApi';
 import { TestType } from 'src/types';
 
 test.describe('Register user API @auth', async () => {

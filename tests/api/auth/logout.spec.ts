@@ -1,8 +1,8 @@
 import { createHeaders } from '@apis/lib/helpers/authHelpers';
 import Env from '@apis/lib/helpers/env';
 import { expect, test } from '@fixtures/baseAPIFixture';
-import { extractField } from 'src/apis/lib/helpers/responseHelpers';
-import UserApi from 'src/apis/user/userApi';
+import { extractField } from '@apis/lib/helpers/responseHelpers';
+import UserApi from '@apis/user/userApi';
 import { TestType } from 'src/types';
 
 test.describe('Logout user @auth', async () => {
