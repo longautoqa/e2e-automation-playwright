@@ -1,7 +1,7 @@
 import { test, expect } from '@fixtures/baseUIFixture';
 
 import { MockApi } from '@mock/commonMockApi';
-import invoices from '../fixtures/invoices.json';
+import invoices from '@testDataApi/order/invoices.json';
 
 test.describe('[Visual tests] Invoice feature', async () => {
 	test.use({ storageState: './playwright/.auth/customer01.json' });

@@ -33,26 +33,4 @@ export class MockApi {
 			});
 		});
 	}
-
-	static async mockGenericResponse(urlPattern: string, options: Options, page: Page) {
-		await test.step(`Mocking API response for ${urlPattern}...`, async () => {
-			await page.route(urlPattern, async (route) => {
-				await route.fulfill(options);
-			});
-		});
-	}
-
-	static async mockErrorResponse(urlPattern: string, status: number, page: Page, errorMessage?: string) {
-		await test.step(`Mocking error response for ${urlPattern}...`, async () => {
-			await page.route(urlPattern, async (route) => {
-				await route.fulfill({
-					status,
-					json: {
-						error: errorMessage || 'Mocked error response',
-						status
-					}
-				});
-			});
-		});
-	}
 }
