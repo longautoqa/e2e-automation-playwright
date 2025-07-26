@@ -1,5 +1,5 @@
 import { expect, test } from '@fixtures/baseAPIFixture';
-import { createRandomUserBody } from '@api/lib/dataFactory/auth';
+import { createRandomUserBody } from '@testDataFactory/auth-data-factory';
 import { createHeaders } from '@api/lib/helpers/authHelpers';
 import { extractField } from '@apiHelpers/responseHelpers';
 import { validateJsonSchema } from '@apiHelpers/validateJsonSchema';

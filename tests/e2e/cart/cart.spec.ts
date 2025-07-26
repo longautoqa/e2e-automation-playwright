@@ -1,7 +1,7 @@
 import {
 	getRandomInStockProductId,
 	getRandomInStockProductIds,
-} from '@api/lib/dataFactory/product';
+} from '@testDataFactory/product-data-factory';
 import { test } from '@fixtures/baseUIFixture';
 import { TestType } from 'src/types';
 
