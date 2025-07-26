@@ -1,4 +1,4 @@
-import ProductData from '@testDataUiProduct/product-data';
+import ProductData from '@testDataStaticProduct/product-data';
 import { test } from '@fixtures/baseUIFixture';
 import { TestType } from 'src/types';
 

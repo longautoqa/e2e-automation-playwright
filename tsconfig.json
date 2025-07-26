@@ -18,10 +18,10 @@
 			"@mock/*": ["src/shared/utils/mock/*"],
 			"@testData/*": ["test-data/fixtures/*"],
 			"@testDataApi/*": ["test-data/fixtures/api/*"],
-			"@testDataUi/*": ["test-data/fixtures/ui/*"],
-			"@testDataUiProduct/*": ["test-data/fixtures/ui/product/*"],
-			"@testDataUiPayment/*": ["test-data/fixtures/ui/payment/*"],
-			"@testDataUiCommon/*": ["test-data/fixtures/ui/common/*"],
+			"@testDataStatic/*": ["test-data/static/*"],
+			"@testDataStaticProduct/*": ["test-data/static/product/*"],
+			"@testDataStaticPayment/*": ["test-data/static/payment/*"],
+			"@testDataStaticCommon/*": ["test-data/static/common/*"],
 			"@testDataVisual/*": ["test-data/fixtures/visual/*"],
 			"@testDataFactory/*": ["test-data/factories/*"]
 		}
