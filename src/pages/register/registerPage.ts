@@ -2,7 +2,7 @@ import { expect, Page } from '@playwright/test';
 import BasePage from '../basePage';
 import { step } from 'playwright-helpers';
 import AddressFormComponent from '@pages/components/address';
-import { RegisterUser } from 'src/apis/user/types';
+import { RegisterUser } from '@apis/user/types';
 
 export default class RegisterPage extends BasePage {
 	static readonly registerUri = 'auth/register';

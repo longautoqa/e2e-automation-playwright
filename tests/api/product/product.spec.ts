@@ -1,7 +1,7 @@
 import { extractField } from '@apiHelpers/responseHelpers';
 import { validateJsonSchema } from '@apiHelpers/validateJsonSchema';
 import { test, expect } from '@fixtures/baseUIFixture';
-import ProductApi from 'src/apis/product/productApi';
+import ProductApi from '@apis/product/productApi';
 import { TestType } from 'src/types';
 import { RandomUtils } from '@utils/randomize';
 

@@ -1,7 +1,7 @@
 import { test, expect } from '@fixtures/baseUIFixture';
 import { MockApi } from '@mock/commonMockApi';
 import cartItems from '@testDataVisual/cart/cart-items.json';
-import AddressData from '@pages/common/data/address';
+import AddressData from '@testDataStatic/common/address-data';
 import { PaymentMethodLabel } from '@pages/checkout/types';
 
 test.describe('[Visual tests] Checkout feature', async () => {

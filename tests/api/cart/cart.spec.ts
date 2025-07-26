@@ -1,7 +1,8 @@
 import { expect, test } from '@fixtures/baseUIFixture';
-import CartApi from 'src/apis/cart/cartApi';
+
+import CartApi from '@apis/cart/cartApi';
 import { createCart } from '@testDataFactory/cart-data-factory';
-import { extractField } from 'src/apis/lib/helpers/responseHelpers';
+import { extractField } from '@apis/lib/helpers/responseHelpers';
 import { getRandomInStockProduct } from '@testDataFactory/product-data-factory';
 import { validateJsonSchema } from '@apiHelpers/validateJsonSchema';
 import { RandomUtils } from '@utils/randomize';
