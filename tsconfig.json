@@ -19,6 +19,9 @@
 			"@testData/*": ["test-data/fixtures/*"],
 			"@testDataApi/*": ["test-data/fixtures/api/*"],
 			"@testDataUi/*": ["test-data/fixtures/ui/*"],
+			"@testDataUiProduct/*": ["test-data/fixtures/ui/product/*"],
+			"@testDataUiPayment/*": ["test-data/fixtures/ui/payment/*"],
+			"@testDataUiCommon/*": ["test-data/fixtures/ui/common/*"],
 			"@testDataVisual/*": ["test-data/fixtures/visual/*"],
 			"@testDataFactory/*": ["test-data/fixtures/factory/*"]
 		}

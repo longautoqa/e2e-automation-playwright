@@ -1,4 +1,4 @@
-import { ProductInputModel } from '../types';
+import { ProductInputModel } from '@pages/product/types';
 
 export default class ProductData {
 	static readonly basicProduct01: ProductInputModel = {
