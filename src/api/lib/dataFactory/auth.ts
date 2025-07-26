@@ -3,8 +3,8 @@ import { expect } from '@fixtures/baseAPIFixture';
 import { request } from '@playwright/test';
 import { RegisterUser } from '@api/user/types';
 import { en, Faker } from '@faker-js/faker';
-import { DateUtils } from 'src/shared/utils/date';
-import { RandomUtils } from 'src/shared/utils/randomize';
+import { DateUtils } from '@utils/date';
+import { RandomUtils } from '@utils/randomize';
 
 const faker = new Faker({ locale: en });
 

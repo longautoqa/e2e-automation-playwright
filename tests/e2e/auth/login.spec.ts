@@ -1,6 +1,6 @@
 import { test } from '@fixtures/baseUIFixture';
 import { TestType } from 'src/types';
-import { RandomUtils } from 'src/shared/utils/randomize';
+import { RandomUtils } from '@utils/randomize';
 
 test.describe('Login feature @auth', async () => {
 	test(

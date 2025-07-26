@@ -3,7 +3,7 @@ import { validateJsonSchema } from '@apiHelpers/validateJsonSchema';
 import { test, expect } from '@fixtures/baseUIFixture';
 import ProductApi from 'src/api/product/productApi';
 import { TestType } from 'src/types';
-import { RandomUtils } from 'src/shared/utils/randomize';
+import { RandomUtils } from '@utils/randomize';
 
 test.describe('Product API feature @product', async () => {
 	test(

@@ -2,7 +2,7 @@ import { expect } from '@fixtures/baseAPIFixture';
 import { request } from '@playwright/test';
 import { Headers } from '@api/baseAPI';
 import BrandApi from '@api/brand/brandApi';
-import { RandomUtils } from 'src/shared/utils/randomize';
+import { RandomUtils } from '@utils/randomize';
 import { BrandResponse } from '@api/brand/types';
 
 export async function createBrand(headers: Headers) {

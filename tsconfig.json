@@ -12,7 +12,8 @@
 			"@components/*": ["src/pages/components/*"],
 			"@resources/*": ["tests/api/textResources/*"],
 			"@dataFactory/*": ["src/api/lib/dataFactory/*"],
-			"@apiHelpers/*": ["src/api/lib/helpers/*"]
+			"@apiHelpers/*": ["src/api/lib/helpers/*"],
+			"@utils/*": ["src/shared/utils/*"]
 		}
 	}
 }

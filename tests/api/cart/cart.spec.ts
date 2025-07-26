@@ -4,7 +4,7 @@ import { createCart } from '@api/lib/dataFactory/cart';
 import { extractField } from 'src/api/lib/helpers/responseHelpers';
 import { getRandomInStockProduct } from '@api/lib/dataFactory/product';
 import { validateJsonSchema } from '@apiHelpers/validateJsonSchema';
-import { RandomUtils } from 'src/shared/utils/randomize';
+import { RandomUtils } from '@utils/randomize';
 import { createHeaders } from '@api/lib/helpers/authHelpers';
 import Env from '@api/lib/helpers/env';
 import { Headers } from '@api/baseAPI';

@@ -4,7 +4,7 @@ import { extractField } from 'src/api/lib/helpers/responseHelpers';
 import { validateJsonSchema } from 'src/api/lib/helpers/validateJsonSchema';
 import UserApi from 'src/api/user/userApi';
 import { TestType } from 'src/types';
-import { RandomUtils } from 'src/shared/utils/randomize';
+import { RandomUtils } from '@utils/randomize';
 
 test.describe('Login user @auth', async () => {
 	[
