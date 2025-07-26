@@ -1,6 +1,6 @@
 import { test, expect } from '@fixtures/baseUIFixture';
 import { MockApi } from '@mock/commonMockApi';
-import cartItems from '../fixtures/cartItems.json';
+import cartItems from '@testDataApi/cart/cart-items.json';
 import AddressData from '@pages/common/data/address';
 import { PaymentMethodLabel } from '@pages/checkout/types';
 

@@ -23,7 +23,10 @@ test.describe('Login feature @auth', async () => {
 			await loginPage.loginComponent.expectEmailFormatErrorMessage();
 			await loginPage.loginComponent.fillPassword('123456');
 			// await loginPage.loginComponent.expectPasswordLengthErrorMessage();
-			await loginPage.loginComponent.login(RandomUtils.randomEmail(), RandomUtils.randomPassword());
+			await loginPage.loginComponent.login(
+				RandomUtils.randomEmail(),
+				RandomUtils.randomPassword()
+			);
 			await loginPage.loginComponent.expectLoginErrorMessage();
 		}
 	);
