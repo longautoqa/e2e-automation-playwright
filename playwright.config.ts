@@ -52,7 +52,7 @@ export default defineConfig({
 				['junit', { outputFile: 'test-results/junit-report.xml' }],
 			],
 	expect: {
-		timeout: Env.EXPECT_TIMEOUT ?? 30_000,
+		timeout: Env.EXPECT_TIMEOUT || 30_000,
 	},
 	snapshotPathTemplate: 'test-data/snapshots/{testFileName}/{arg}{ext}',
 	/* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -67,8 +67,8 @@ export default defineConfig({
 		video: {
 			mode: 'retain-on-failure',
 		},
-		actionTimeout: Env.ACTION_TIMEOUT ?? 20_000,
-		navigationTimeout: Env.NAVIGATION_TIMEOUT ?? 60_000,
+		actionTimeout: Env.ACTION_TIMEOUT || 20_000,
+		navigationTimeout: Env.NAVIGATION_TIMEOUT || 60_000,
 		testIdAttribute: 'data-test',
 	},
 
