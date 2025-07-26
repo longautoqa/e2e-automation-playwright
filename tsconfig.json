@@ -14,7 +14,8 @@
 			"@dataFactory/*": ["src/api/lib/dataFactory/*"],
 			"@apiHelpers/*": ["src/api/lib/helpers/*"],
 			"@apiExpect/*": ["src/api/lib/expect/*"],
-			"@utils/*": ["src/shared/utils/*"]
+			"@utils/*": ["src/shared/utils/*"],
+			"@mock/*": ["src/shared/utils/mock/*"]
 		}
 	}
 }
