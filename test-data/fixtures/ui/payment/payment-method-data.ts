@@ -2,7 +2,7 @@ import {
 	BankDetailsInputModel,
 	CreditCardInputModel,
 	GiftCardInputModel,
-} from '../types';
+} from '@pages/checkout/types';
 
 export default class PaymentMethodData {
 	static readonly bankTransfer: BankDetailsInputModel = {
