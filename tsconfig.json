@@ -13,6 +13,7 @@
 			"@resources/*": ["tests/api/textResources/*"],
 			"@dataFactory/*": ["src/api/lib/dataFactory/*"],
 			"@apiHelpers/*": ["src/api/lib/helpers/*"],
+			"@apiExpect/*": ["src/api/lib/expect/*"],
 			"@utils/*": ["src/shared/utils/*"]
 		}
 	}
