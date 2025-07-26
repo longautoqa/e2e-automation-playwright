@@ -3,7 +3,7 @@ import { validateJsonSchema } from '@apiHelpers/validateJsonSchema';
 import { test, expect } from '@fixtures/baseUIFixture';
 import ProductApi from 'src/api/product/productApi';
 import { TestType } from 'src/types';
-import { randomString } from 'utils/randomize';
+import { RandomUtils } from '@utils/randomize';
 
 test.describe('Product API feature @product', async () => {
 	test(
@@ -64,7 +64,7 @@ test.describe('Product API feature @product', async () => {
 		},
 		async ({ request }) => {
 			const productApi = new ProductApi(request, {});
-			const productId = randomString();
+			const productId = RandomUtils.randomString();
 			const getProductRes = await productApi.getProduct(productId);
 
 			expect(getProductRes).toHaveNotFoundStatus();

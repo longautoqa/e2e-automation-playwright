@@ -1,6 +1,6 @@
 import { test } from '@fixtures/baseUIFixture';
 import { TestType } from 'src/types';
-import { randomEmail, randomPassword, randomString } from 'utils/randomize';
+import { RandomUtils } from '@utils/randomize';
 
 test.describe('Login feature @auth', async () => {
 	test(
@@ -19,11 +19,11 @@ test.describe('Login feature @auth', async () => {
 			await loginPage.loginComponent.login('', '');
 			await loginPage.loginComponent.expectRequiredEmailErrorMessage();
 			await loginPage.loginComponent.expectRequiredPasswordErrorMessage();
-			await loginPage.loginComponent.fillEmail(randomString());
+			await loginPage.loginComponent.fillEmail(RandomUtils.randomString());
 			await loginPage.loginComponent.expectEmailFormatErrorMessage();
 			await loginPage.loginComponent.fillPassword('123456');
 			// await loginPage.loginComponent.expectPasswordLengthErrorMessage();
-			await loginPage.loginComponent.login(randomEmail(), randomPassword());
+			await loginPage.loginComponent.login(RandomUtils.randomEmail(), RandomUtils.randomPassword());
 			await loginPage.loginComponent.expectLoginErrorMessage();
 		}
 	);
