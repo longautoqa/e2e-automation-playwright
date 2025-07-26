@@ -12,3 +12,19 @@ export interface Options {
 	response?: APIResponse;
 	status?: number;
 }
+
+export interface MockResponseOptions {
+	status?: number;
+	json?: Serializable;
+	headers?: Record<string, string>;
+	contentType?: string;
+}
+
+export interface MockErrorOptions {
+	status: number;
+	json?: {
+		error?: string;
+		message?: string;
+		[key: string]: any;
+	};
+}

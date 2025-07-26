@@ -1,5 +1,5 @@
 import { test, expect } from '@fixtures/baseUIFixture';
-import { mockCartResponse } from '@mock/commonMockApi';
+import { MockApi } from '@mock/commonMockApi';
 import cartItems from '../fixtures/cartItems.json';
 import AddressData from '@pages/common/data/address';
 import { PaymentMethodLabel } from '@pages/checkout/types';
@@ -9,7 +9,7 @@ test.describe('[Visual tests] Checkout feature', async () => {
 
 	test('Checkout flow', async ({ page, navComponent, checkoutPage }) => {
 		await test.step('Snapshot cart step...', async () => {
-			await mockCartResponse(
+			await MockApi.mockCartResponse(
 				{
 					status: 200,
 					json: cartItems,

@@ -1,8 +1,6 @@
 import { test, expect } from '@fixtures/baseUIFixture';
-import {
-	mockInvoicesResponse,
-	mockInvoiceResponse,
-} from '@mock/commonMockApi';
+
+import { MockApi } from '@mock/commonMockApi';
 import invoices from '../fixtures/invoices.json';
 
 test.describe('[Visual tests] Invoice feature', async () => {
@@ -14,7 +12,7 @@ test.describe('[Visual tests] Invoice feature', async () => {
 		accountPage,
 		invoicePage,
 	}) => {
-		await mockInvoicesResponse(
+		await MockApi.mockInvoicesResponse(
 			{
 				status: 200,
 				json: invoices,
@@ -26,7 +24,7 @@ test.describe('[Visual tests] Invoice feature', async () => {
 		await accountPage.expectNavigateToInvoicesPage();
 
 		const invoice = invoices.data[0];
-		await mockInvoiceResponse(
+		await MockApi.mockInvoiceResponse(
 			{
 				status: 200,
 				json: invoice,
