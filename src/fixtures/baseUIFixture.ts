@@ -1,4 +1,5 @@
 import { test as base } from '@playwright/test';
+
 import AccountPage from '@pages/account/accountPage';
 import NavigationComponent from '@pages/components/navigationBar';
 import SideBarComponent from '@pages/components/sideBarComponent';
@@ -9,8 +10,6 @@ import HomePage from '@pages/homePage';
 import RegisterPage from '@pages/register/registerPage';
 import ProductPage from '@pages/product/productPage';
 import InvoicePage from '@pages/invoice/invoicePage';
-import DashboardPage from '@pages/admin/dashboardPage';
-import BrandPage from '@pages/admin/brand/brandPage';
 
 export type BaseUIComponent = {
 	navComponent: NavigationComponent;
@@ -19,8 +18,6 @@ export type BaseUIComponent = {
 
 export type BaseUI = {
 	homePage: HomePage;
-	brandPage: BrandPage;
-	dashboardPage: DashboardPage;
 	loginPage: LoginPage;
 	registerPage: RegisterPage;
 	searchPage: SearchProduct;
@@ -35,12 +32,6 @@ export const test = base.extend<
 >({
 	homePage: async ({ page }, use) => {
 		await use(new HomePage(page));
-	},
-	brandPage: async ({ page }, use) => {
-		await use(new BrandPage(page));
-	},
-	dashboardPage: async ({ page }, use) => {
-		await use(new DashboardPage(page));
 	},
 	loginPage: async ({ page }, use) => {
 		await use(new LoginPage(page));

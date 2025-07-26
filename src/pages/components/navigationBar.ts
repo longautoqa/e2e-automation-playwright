@@ -9,8 +9,6 @@ import RegisterPage from '@pages/register/registerPage';
 import { expect, Page } from '@playwright/test';
 import Env from '@api/lib/helpers/env';
 import { step } from 'playwright-helpers';
-import DashboardPage from '@pages/admin/dashboardPage';
-import BrandPage from '@pages/admin/brand/brandPage';
 
 export default class NavigationComponent extends BasePage {
 	private static readonly BASE_URL = Env.BASE_URL;
@@ -94,11 +92,6 @@ export default class NavigationComponent extends BasePage {
 	}
 
 	@step()
-	async openBrandPageURL() {
-		await this.openURL(BrandPage.brandUri);
-	}
-
-	@step()
 	async openInvoicesPageURL() {
 		await this.openURL(InvoicePage.invoiceUri);
 	}
@@ -144,11 +137,6 @@ export default class NavigationComponent extends BasePage {
 	@step()
 	async expectNavigateToCheckoutPage() {
 		await this.expectNavigateTo(CheckoutPage.checkoutUri);
-	}
-
-	@step()
-	async expectNavigateToBrandPage() {
-		await this.expectNavigateTo(BrandPage.brandUri);
 	}
 
 	@step()

@@ -1,7 +1,8 @@
+import BaseApi, { Headers } from '@api/baseAPI';
 import { APIRequestContext } from '@playwright/test';
+
 import Env from '@api/lib/helpers/env';
 import { AddProductToCart } from './types';
-import BaseApi, { Headers } from '@api/baseAPI';
 
 export default class CartApi extends BaseApi {
 	static readonly cartEndpoint = 'carts';

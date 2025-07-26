@@ -1,12 +1,12 @@
-import BasePage from '@pages/basePage';
-import InvoicePage from '@pages/invoice/invoicePage';
 import { Page } from '@playwright/test';
 import { step } from 'playwright-helpers';
+
+import BasePage from '@pages/basePage';
+import InvoicePage from '@pages/invoice/invoicePage';
 
 export default class AccountPage extends BasePage {
 	static readonly accountUri = 'account';
 	static readonly profileUri = `${AccountPage.accountUri}/accountUri`;
-	static readonly dashboardUri = 'admin/dashboard';
 
 	constructor(page: Page) {
 		super(page);
