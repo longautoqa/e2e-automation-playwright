@@ -1,5 +1,6 @@
-import { expect, Page } from '@playwright/test';
-import BasePage from '../basePage';
+import { Page } from '@playwright/test';
+
+import BasePage from '@pages/core/base-page';
 import { step } from 'playwright-helpers';
 import AddressFormComponent from '@pages/components/address';
 import { RegisterUser } from '@apis/user/types';
@@ -53,7 +54,7 @@ export default class RegisterPage extends BasePage {
 	 */
 	@step()
 	async clickRegister() {
-		await this.registerBtn.click();
+		await this.clickElement(this.registerBtn);
 	}
 
 	/**
@@ -64,13 +65,13 @@ export default class RegisterPage extends BasePage {
 		const { first_name, last_name, dob, address, phone, password, email } =
 			userData;
 
-		if (first_name) await this.firstNameField.fill(first_name);
-		if (last_name) await this.lastNameField.fill(last_name);
-		if (dob) await this.dobPicker.fill(dob);
+		if (first_name) await this.fillElement(this.firstNameField, first_name);
+		if (last_name) await this.fillElement(this.lastNameField, last_name);
+		if (dob) await this.fillElement(this.dobPicker, dob);
 		if (address) await this.addressFormComponent.fillAddressForm(address, true);
-		if (phone) await this.phoneField.fill(phone);
-		if (password) await this.passwordField.fill(password);
-		if (email) await this.emailField.fill(email);
+		if (phone) await this.fillElement(this.phoneField, phone);
+		if (password) await this.fillElement(this.passwordField, password);
+		if (email) await this.fillElement(this.emailField, email);
 	}
 
 	/**
@@ -78,32 +79,41 @@ export default class RegisterPage extends BasePage {
 	 */
 	@step()
 	async expectFirstNameRequiredErrorMsg() {
-		await expect(this.firstNameError).toContainText(this.FIRST_NAME_REQUIRED);
+		await this.verifyElementTextContains(
+			this.firstNameError,
+			this.FIRST_NAME_REQUIRED
+		);
 	}
 
 	@step()
 	async expectLastNameRequiredErrorMsg() {
-		await expect(this.lastNameError).toContainText(this.LAST_NAME_REQUIRED);
+		await this.verifyElementTextContains(
+			this.lastNameError,
+			this.LAST_NAME_REQUIRED
+		);
 	}
 
 	@step()
 	async expectDOBRequiredErrorMsg() {
-		await expect(this.dobError).toContainText(this.DOB_REQUIRED);
+		await this.verifyElementTextContains(this.dobError, this.DOB_REQUIRED);
 	}
 
 	@step()
 	async expectEmailRequiredErrorMsg() {
-		await expect(this.emailError).toContainText(this.EMAIL_REQUIRED);
+		await this.verifyElementTextContains(this.emailError, this.EMAIL_REQUIRED);
 	}
 
 	@step()
 	async expectPhoneRequiredErrorMsg() {
-		await expect(this.phoneError).toContainText(this.PHONE_REQUIRED);
+		await this.verifyElementTextContains(this.phoneError, this.PHONE_REQUIRED);
 	}
 
 	@step()
 	async expectPasswordRequiredErrorMsg() {
-		await expect(this.passwordError).toContainText(this.PASSWORD_REQUIRED);
+		await this.verifyElementTextContains(
+			this.passwordError,
+			this.PASSWORD_REQUIRED
+		);
 	}
 
 	@step()
@@ -123,12 +133,12 @@ export default class RegisterPage extends BasePage {
 
 	@step()
 	async expectRegisterFormWithNoErrorMsgs() {
-		await expect(this.errorField).toHaveCount(0);
+		await this.verifyElementCount(this.errorField, 0);
 	}
 
 	@step()
 	async expectRegisterPageOpened() {
-		await expect(this.registerBtn).toBeVisible();
-		await expect(this.registerBtn).toHaveText(this.REGISTER);
+		await this.verifyElementVisible(this.registerBtn);
+		await this.verifyElementText(this.registerBtn, this.REGISTER);
 	}
 }

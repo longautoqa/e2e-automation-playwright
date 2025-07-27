@@ -1,5 +1,6 @@
-import { expect, Page } from '@playwright/test';
-import BasePage from '../basePage';
+import { Page } from '@playwright/test';
+
+import BasePage from '@pages/core/base-page';
 import { ProductInputModel } from './types';
 import { step } from 'playwright-helpers';
 
@@ -36,18 +37,18 @@ export default class ProductPage extends BasePage {
 	 */
 	@step()
 	async clickAddToCart() {
-		await this.addToCartBtn.click();
+		await this.clickElement(this.addToCartBtn);
 	}
 
 	@step()
 	async clickAddToFavourites() {
-		await this.addToFavoritesBtn.click();
+		await this.clickElement(this.addToFavoritesBtn);
 	}
 
 	@step()
 	async closeToastMessageBox() {
-		await this.toastBox.click();
-		await this.toastBox.waitFor({ state: 'hidden' });
+		await this.clickElement(this.toastBox);
+		await this.waitForElementHidden(this.toastBox);
 	}
 
 	/**
@@ -55,60 +56,60 @@ export default class ProductPage extends BasePage {
 	 */
 	@step()
 	async expectProductDetails(product: ProductInputModel) {
-		await expect(this.productName).toHaveText(product.name);
-		await expect(this.unitPrice).toHaveText(product.price.toString());
+		await this.verifyElementText(this.productName, product.name);
+		await this.verifyElementText(this.unitPrice, product.price.toString());
 	}
 
 	@step()
 	async expectAddedProductToCartSuccessMsg() {
-		await expect(this.toastSucceedMsg).toBeVisible();
+		await this.verifyElementVisible(this.toastSucceedMsg);
 	}
 
 	@step()
 	async expectAddedProductToCartMessageHidden() {
-		await expect(this.toastSucceedMsg).toBeHidden();
+		await this.verifyElementHidden(this.toastSucceedMsg);
 	}
 
 	@step()
 	async expectOutOfStockMessageShown() {
-		await expect(this.outOfStockMsg).toBeVisible();
+		await this.verifyElementVisible(this.outOfStockMsg);
 	}
 
 	@step()
 	async expectSetQuantityDisabled() {
-		await expect(this.qtyField).toHaveValue('1');
-		await expect(this.qtyField).toBeDisabled();
-		await expect(this.minusQtyBtn).toBeDisabled();
-		await expect(this.plusQtyBtn).toBeDisabled();
+		await this.verifyElementValue(this.qtyField, '1');
+		await this.verifyElementDisabled(this.qtyField);
+		await this.verifyElementDisabled(this.minusQtyBtn);
+		await this.verifyElementDisabled(this.plusQtyBtn);
 	}
 
 	@step()
 	async expectOutOfStockMessageHidden() {
-		await expect(this.outOfStockMsg).toBeHidden();
+		await this.verifyElementHidden(this.outOfStockMsg);
 	}
 
 	@step()
 	async expectAddToCartButtonDisabled() {
-		await expect(this.addToCartBtn).toBeDisabled();
+		await this.verifyElementDisabled(this.addToCartBtn);
 	}
 
 	@step()
 	async expectAddToCartButtonEnabled() {
-		await expect(this.addToCartBtn).toBeEnabled();
+		await this.verifyElementEnabled(this.addToCartBtn);
 	}
 
 	@step()
 	async expectAddToFavouritesButtonEnabled() {
-		await expect(this.addToFavoritesBtn).toBeEnabled();
+		await this.verifyElementEnabled(this.addToFavoritesBtn);
 	}
 
 	@step()
 	async expectAddedToFavouritesErrorMsg() {
-		await expect(this.toastErrorMsg).toBeVisible();
+		await this.verifyElementVisible(this.toastErrorMsg);
 	}
 
 	@step()
 	async expectToastMessageBoxHidden() {
-		await expect(this.toastBox).toBeHidden();
+		await this.verifyElementHidden(this.toastBox);
 	}
 }

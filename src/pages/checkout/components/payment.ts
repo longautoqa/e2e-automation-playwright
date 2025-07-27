@@ -1,5 +1,5 @@
-import BasePage from '@pages/basePage';
-import { expect, Page } from '@playwright/test';
+import BasePage from '@pages/core/base-page';
+import { Page } from '@playwright/test';
 import {
 	BankDetailsInputModel,
 	CreditCardInputModel,
@@ -17,7 +17,6 @@ export default class PaymentComponent extends BasePage {
 	/**
 	 * Application contents
 	 */
-
 	readonly choosePaymentMethodTxt = 'Choose your payment method';
 	readonly thanksForYourOrderTxt =
 		'Thanks for your order! Your invoice number is';
@@ -58,9 +57,10 @@ export default class PaymentComponent extends BasePage {
 	async fillBankDetails(bankDetails: BankDetailsInputModel) {
 		const { bankName, accountName, accountNumber } = bankDetails;
 
-		if (bankName) await this.bankNameField.fill(bankName);
-		if (accountName) await this.accountNameField.fill(accountName);
-		if (accountNumber) await this.accountNumberField.fill(accountNumber);
+		if (bankName) await this.fillElement(this.bankNameField, bankName);
+		if (accountName) await this.fillElement(this.accountNameField, accountName);
+		if (accountNumber)
+			await this.fillElement(this.accountNumberField, accountNumber);
 	}
 
 	@step()
@@ -69,18 +69,22 @@ export default class PaymentComponent extends BasePage {
 			creditCard;
 
 		if (creditCardNumber)
-			await this.creditCardNumberField.fill(creditCardNumber);
-		if (expirationDate) await this.expDateField.fill(expirationDate);
-		if (cvv) await this.cvvField.fill(cvv);
-		if (cardHolderName) await this.cardHolderNameField.fill(cardHolderName);
+			await this.fillElement(this.creditCardNumberField, creditCardNumber);
+		if (expirationDate)
+			await this.fillElement(this.expDateField, expirationDate);
+		if (cvv) await this.fillElement(this.cvvField, cvv);
+		if (cardHolderName)
+			await this.fillElement(this.cardHolderNameField, cardHolderName);
 	}
 
 	@step()
 	async fillGiftCard(card: GiftCardInputModel) {
 		const { giftCardNumber, validationCode } = card;
 
-		if (giftCardNumber) await this.giftCardNumberField.fill(giftCardNumber);
-		if (validationCode) await this.validationCodeField.fill(validationCode);
+		if (giftCardNumber)
+			await this.fillElement(this.giftCardNumberField, giftCardNumber);
+		if (validationCode)
+			await this.fillElement(this.validationCodeField, validationCode);
 	}
 
 	/**
@@ -88,6 +92,9 @@ export default class PaymentComponent extends BasePage {
 	 */
 	@step()
 	async expectOrderedSuccess() {
-		await expect(this.confirmOrder).toContainText(this.thanksForYourOrderTxt);
+		await this.verifyElementTextContains(
+			this.confirmOrder,
+			this.thanksForYourOrderTxt
+		);
 	}
 }

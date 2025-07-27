@@ -1,6 +1,3 @@
-/**
- * Interfaces
- */
 export interface SortProductInputModel {
 	aToZ: 'Name (A - Z)';
 	zToA: 'Name (Z - A)';

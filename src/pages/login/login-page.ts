@@ -1,6 +1,6 @@
-import BasePage from '@pages/basePage';
+import BasePage from '@pages/core/base-page';
 import LoginComponent from '@pages/components/login';
-import { expect, Page } from '@playwright/test';
+import { Page } from '@playwright/test';
 import { step } from 'playwright-helpers';
 
 export default class LoginPage extends BasePage {
@@ -28,19 +28,15 @@ export default class LoginPage extends BasePage {
 	 * Actions
 	 */
 	async clickRegisterLink() {
-		await this.registerLink.click();
+		await this.clickElement(this.registerLink);
 	}
-
-	/**
-	 * Methods
-	 */
 
 	/**
 	 * Assertions
 	 */
 	@step()
 	async expectLoginPageOpened() {
-		await expect(this.loginComponent.loginBtn).toBeVisible();
-		await expect(this.loginComponent.loginBtn).toHaveText(LoginPage.LOGIN);
+		await this.verifyElementVisible(this.loginComponent.loginBtn);
+		await this.verifyElementText(this.loginComponent.loginBtn, LoginPage.LOGIN);
 	}
 }

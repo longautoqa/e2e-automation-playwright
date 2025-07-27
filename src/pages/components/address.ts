@@ -1,5 +1,5 @@
-import BasePage from '@pages/basePage';
-import { expect, Page } from '@playwright/test';
+import BasePage from '@pages/core/base-page';
+import { Page } from '@playwright/test';
 import { step } from 'playwright-helpers';
 import { Address } from '@apis/user/types';
 
@@ -38,32 +38,32 @@ export default class AddressFormComponent extends BasePage {
 	 */
 	@step()
 	async fillStreet(street: string) {
-		await this.streetField.fill(street);
+		await this.fillElement(this.streetField, street);
 	}
 
 	@step()
 	async fillCity(city: string) {
-		await this.cityField.fill(city);
+		await this.fillElement(this.cityField, city);
 	}
 
 	@step()
 	async fillState(state: string) {
-		await this.stateField.fill(state);
+		await this.fillElement(this.stateField, state);
 	}
 
 	@step()
 	async fillCountry(country: string) {
-		await this.countryField.fill(country);
+		await this.fillElement(this.countryField, country);
 	}
 
 	@step()
 	async selectCountry(country: string) {
-		await this.countryField.fill(country);
+		await this.fillElement(this.countryField, country);
 	}
 
 	@step()
 	async fillPostCode(postCode: string) {
-		await this.postCodeField.fill(postCode);
+		await this.fillElement(this.postCodeField, postCode);
 	}
 
 	/**
@@ -90,22 +90,28 @@ export default class AddressFormComponent extends BasePage {
 	 * Assertions
 	 */
 	async expectStreetRequiredErrorMsg() {
-		await expect(this.streetError).toContainText(this.streetRequired);
+		await this.verifyElementTextContains(this.streetError, this.streetRequired);
 	}
 
 	async expectCountryRequiredErrorMsg() {
-		await expect(this.countryError).toContainText(this.countryRequired);
+		await this.verifyElementTextContains(
+			this.countryError,
+			this.countryRequired
+		);
 	}
 
 	async expectStateRequiredErrorMsg() {
-		await expect(this.stateError).toContainText(this.stateRequired);
+		await this.verifyElementTextContains(this.stateError, this.stateRequired);
 	}
 
 	async expectPostCodeRequiredErrorMsg() {
-		await expect(this.postCodeError).toContainText(this.postCodeRequired);
+		await this.verifyElementTextContains(
+			this.postCodeError,
+			this.postCodeRequired
+		);
 	}
 
 	async expectCityRequiredErrorMsg() {
-		await expect(this.cityError).toContainText(this.cityRequired);
+		await this.verifyElementTextContains(this.cityError, this.cityRequired);
 	}
 }

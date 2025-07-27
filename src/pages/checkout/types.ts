@@ -1,14 +1,3 @@
-/**
- * Enums
- */
-// export enum PaymentMethodInputModel {
-//   bankTransfer = 'bank-transfer',
-//   cashOnDelivery = 'cash-on-delivery',
-//   creditCard = 'credit-card',
-//   buyNowPayLater = 'buy-now-pay-later',
-//   giftCard = 'gift-card',
-// }
-
 export enum PaymentMethodLabel {
 	bankTransfer = 'Bank Transfer',
 	cashOnDelivery = 'Cash on Delivery',

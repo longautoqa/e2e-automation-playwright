@@ -1,5 +1,5 @@
-import BasePage from '@pages/basePage';
-import { expect, Page } from '@playwright/test';
+import BasePage from '@pages/core/base-page';
+import { Page } from '@playwright/test';
 import { step } from 'playwright-helpers';
 
 export default class LoginComponent extends BasePage {
@@ -35,15 +35,15 @@ export default class LoginComponent extends BasePage {
 	 * Actions
 	 */
 	async fillEmail(email: string) {
-		await this.emailField.fill(email);
+		await this.fillElement(this.emailField, email);
 	}
 
 	async fillPassword(password: string) {
-		await this.passwordField.fill(password);
+		await this.fillElement(this.passwordField, password);
 	}
 
 	async clickLogin() {
-		await this.loginBtn.click();
+		await this.clickElement(this.loginBtn);
 	}
 
 	/**
@@ -60,27 +60,33 @@ export default class LoginComponent extends BasePage {
 	 */
 	@step()
 	async expectRequiredEmailErrorMessage() {
-		await expect(this.emailError).toHaveText(this.requiredEmailTxt);
+		await this.verifyElementText(this.emailError, this.requiredEmailTxt);
 	}
 
 	@step()
 	async expectRequiredPasswordErrorMessage() {
-		await expect(this.passwordError).toHaveText(this.requiredPasswordTxt);
+		await this.verifyElementText(this.passwordError, this.requiredPasswordTxt);
 	}
 
 	@step()
 	async expectEmailFormatErrorMessage() {
-		await expect(this.emailError).toHaveText(this.invalidEmailFormatTxt);
+		await this.verifyElementText(this.emailError, this.invalidEmailFormatTxt);
 	}
 
 	@step()
 	async expectPasswordLengthErrorMessage() {
-		await expect(this.passwordError).toHaveText(this.invalidPasswordLengthTxt);
+		await this.verifyElementText(
+			this.passwordError,
+			this.invalidPasswordLengthTxt
+		);
 	}
 
 	@step()
 	async expectLoginErrorMessage() {
-		await expect(this.loginError).toHaveText(this.invalidEmailOrPasswordTxt);
+		await this.verifyElementText(
+			this.loginError,
+			this.invalidEmailOrPasswordTxt
+		);
 	}
 
 	@step()
@@ -88,6 +94,9 @@ export default class LoginComponent extends BasePage {
 
 	@step()
 	async expectLoggedInFail() {
-		await expect(this.loginError).toHaveText(this.invalidEmailOrPasswordTxt);
+		await this.verifyElementText(
+			this.loginError,
+			this.invalidEmailOrPasswordTxt
+		);
 	}
 }
