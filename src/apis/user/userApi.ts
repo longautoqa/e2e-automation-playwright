@@ -1,7 +1,7 @@
 import { APIRequestContext } from '@playwright/test';
-import Env from '@utils/env';
 import { RegisterUser } from './types';
-import BaseApi, { Headers } from '../baseAPI';
+import BaseApi from '@apisCore/baseApi';
+import { Headers } from '@apisCore/types';
 
 export default class UserApi extends BaseApi {
 	static readonly USER = 'users';
@@ -17,7 +17,7 @@ export default class UserApi extends BaseApi {
 	}
 
 	async login(email: string, password: string) {
-		return await this.request.post(`${Env.API_URL}${UserApi.LOGIN}`, {
+		return await this.post(UserApi.LOGIN, {
 			data: {
 				email,
 				password,
@@ -26,29 +26,18 @@ export default class UserApi extends BaseApi {
 	}
 
 	async logout(headers: Headers) {
-		return await this.request.get(`${Env.API_URL}${UserApi.LOGOUT}`, {
-			headers: headers,
-		});
+		return await this.get(UserApi.LOGOUT, { headers });
 	}
 
 	async createUser(body: RegisterUser) {
-		return await this.request.post(`${Env.API_URL}${UserApi.REGISTER_USER}`, {
-			data: body,
-		});
+		return await this.post(UserApi.REGISTER_USER, { data: body });
 	}
 
 	async deleteUser(userId: string, headers: Headers) {
-		return await this.request.delete(
-			`${Env.API_URL}${UserApi.USER}/${userId}`,
-			{
-				headers: headers,
-			}
-		);
+		return await this.delete(`${UserApi.USER}/${userId}`, { headers });
 	}
 
 	async getUser(userId: string, headers: Headers) {
-		return await this.request.get(`${Env.API_URL}${UserApi.USER}/${userId}`, {
-			headers: headers,
-		});
+		return await this.get(`${UserApi.USER}/${userId}`, { headers });
 	}
 }

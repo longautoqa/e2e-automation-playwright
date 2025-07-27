@@ -1,17 +1,16 @@
-import BaseApi, { Headers } from '@apis/baseAPI';
+import BaseApi from '@apisCore/baseApi';
+import { Headers } from '@apisCore/types';
 import { APIRequestContext } from '@playwright/test';
-import Env from '@utils/env';
 
 export default class ProductApi extends BaseApi {
-	private endpoint: string;
+	static readonly PRODUCT_ENDPOINT = 'products';
 
 	constructor(request: APIRequestContext, headers: Headers) {
 		super(request, headers);
-		this.endpoint = Env.API_URL + 'products';
 	}
 
 	async searchProduct(name: string, page = 1) {
-		return await this.request.get(`${this.endpoint}/search`, {
+		return await this.get(`${ProductApi.PRODUCT_ENDPOINT}/search`, {
 			params: {
 				q: name,
 				page: page,
@@ -20,12 +19,10 @@ export default class ProductApi extends BaseApi {
 	}
 
 	async getProducts(params?: { [key: string]: string | number }) {
-		return await this.request.get(this.endpoint, {
-			params: params,
-		});
+		return await this.get(ProductApi.PRODUCT_ENDPOINT, { params });
 	}
 
 	async getProduct(productId: string) {
-		return await this.request.get(`${this.endpoint}/${productId}`);
+		return await this.get(`${ProductApi.PRODUCT_ENDPOINT}/${productId}`);
 	}
 }
