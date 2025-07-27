@@ -1,15 +1,14 @@
 import { test as base } from '@playwright/test';
 
-import AccountPage from '@pages/account/accountPage';
-import NavigationComponent from '@pages/components/navigationBar';
-import SideBarComponent from '@pages/components/sideBarComponent';
-import CheckoutPage from '@pages/checkout/checkoutPage';
-import LoginPage from '@pages/login/loginPage';
-import SearchProduct from '@pages/product/searchProductPage';
-import HomePage from '@pages/homePage';
-import RegisterPage from '@pages/register/registerPage';
-import ProductPage from '@pages/product/productPage';
-import InvoicePage from '@pages/invoice/invoicePage';
+import AccountPage from '@pages/account/account-page';
+import NavigationComponent from '@pages/components/navigation-bar';
+import SideBarComponent from '@pages/components/sidebar-component';
+import CheckoutPage from '@pages/checkout/checkout-page';
+import LoginPage from '@pages/login/login-page';
+import SearchProduct from '@pages/product/search-product-page';
+import HomePage from '@pages/home/home-page';
+import RegisterPage from '@pages/register/register-page';
+import ProductPage from '@pages/product/product-page';
 
 export type BaseUIComponent = {
 	navComponent: NavigationComponent;
@@ -24,7 +23,6 @@ export type BaseUI = {
 	productPage: ProductPage;
 	accountPage: AccountPage;
 	checkoutPage: CheckoutPage;
-	invoicePage: InvoicePage;
 };
 
 export const test = base.extend<
@@ -51,9 +49,7 @@ export const test = base.extend<
 	checkoutPage: async ({ page }, use) => {
 		await use(new CheckoutPage(page));
 	},
-	invoicePage: async ({ page }, use) => {
-		await use(new InvoicePage(page));
-	},
+
 	navComponent: async ({ page }, use) => {
 		await use(new NavigationComponent(page));
 	},

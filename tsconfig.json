@@ -8,6 +8,7 @@
 			"@apisCore/*": ["src/apis/core/*"],
 			"@fixtures/*": ["src/fixtures/*"],
 			"@pages/*": ["src/pages/*"],
+			"@pagesCore/*": ["src/pages/core/*"],
 			"@helpers/*": ["src/helpers/*"],
 			"@data/*": ["src/data/*"],
 			"@components/*": ["src/pages/components/*"],

@@ -1,16 +1,12 @@
-import { expect, Page } from '@playwright/test';
+import { Page } from '@playwright/test';
 import { ProductInputModel } from '../../product/types';
 import { step } from 'playwright-helpers';
-import BasePage from '@pages/basePage';
+import BasePage from '@pages/core/base-page';
 
 export default class CartComponent extends BasePage {
 	constructor(page: Page) {
 		super(page);
 	}
-
-	/**
-	 * Application contents
-	 */
 
 	/**
 	 * Locators
@@ -34,32 +30,24 @@ export default class CartComponent extends BasePage {
 	readonly cartTotalPrice = this.page.getByTestId('cart-total');
 
 	/**
-	 * Actions
-	 */
-	async removeProductFromCart(productName: string) {}
-
-	/**
 	 * Assertions
 	 */
 	@step()
 	async expectProduct(product: ProductInputModel, quantity: number) {
 		const linePrice = product.price * quantity;
 
-		await expect(this.productName(product.name)).toHaveCount(1);
-		await expect(this.productQtyField(product.name)).toHaveValue(
+		await this.verifyElementCount(this.productName(product.name), 1);
+		await this.verifyElementValue(
+			this.productQtyField(product.name),
 			quantity.toString()
 		);
-		await expect(this.productUnitPrice(product.name)).toContainText(
+		await this.verifyElementTextContains(
+			this.productUnitPrice(product.name),
 			product.price.toString()
 		);
-		await expect(this.productLinePrice(product.name)).toContainText(
+		await this.verifyElementTextContains(
+			this.productLinePrice(product.name),
 			linePrice.toString()
 		);
 	}
-
-	@step()
-	async expectTotalPrice() {}
-
-	@step()
-	async expectRemovedProductFromCart(productName: string) {}
 }

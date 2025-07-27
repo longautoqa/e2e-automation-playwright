@@ -1,8 +1,6 @@
+import BasePage from '@pages/core/base-page';
 import { Page } from '@playwright/test';
 import { step } from 'playwright-helpers';
-
-import BasePage from '@pages/basePage';
-import InvoicePage from '@pages/invoice/invoicePage';
 
 export default class AccountPage extends BasePage {
 	static readonly accountUri = 'account';
@@ -23,15 +21,5 @@ export default class AccountPage extends BasePage {
 	@step()
 	async expectNavigateToProfilePage() {
 		await this.page.waitForURL(`**/${AccountPage.profileUri}`);
-	}
-
-	@step()
-	async expectNavigateToInvoicesPage() {
-		await this.page.waitForURL(`**/${InvoicePage.invoiceUri}`);
-	}
-
-	@step()
-	async expectNavigateToInvoicePage() {
-		await this.page.waitForURL(`**/${InvoicePage.invoiceUri}/*`);
 	}
 }

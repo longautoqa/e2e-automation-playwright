@@ -1,15 +1,11 @@
-import BasePage from '@pages/basePage';
-import { expect, Page } from '@playwright/test';
+import BasePage from '@pages/core/base-page';
+import { Page } from '@playwright/test';
 import { step } from 'playwright-helpers';
 
 export default class SideBarComponent extends BasePage {
 	constructor(page: Page) {
 		super(page);
 	}
-
-	/**
-	 * Application contents
-	 */
 
 	/**
 	 * Locators
@@ -28,7 +24,7 @@ export default class SideBarComponent extends BasePage {
 	 */
 	@step()
 	async clearSearchBox() {
-		await this.clearSearchBtn.click();
+		await this.clickElement(this.clearSearchBtn);
 	}
 
 	/**
@@ -36,8 +32,8 @@ export default class SideBarComponent extends BasePage {
 	 */
 	@step()
 	async searchProductName(name: string) {
-		await this.searchField.fill(name);
-		await this.searchBtn.click();
+		await this.fillElement(this.searchField, name);
+		await this.clickElement(this.searchBtn);
 	}
 
 	/**
@@ -45,7 +41,7 @@ export default class SideBarComponent extends BasePage {
 	 */
 	@step()
 	async expectSearchBoxCleared() {
-		await expect(this.searchField).toBeEmpty();
+		await this.verifyElementEmpty(this.searchField);
 	}
 
 	@step()

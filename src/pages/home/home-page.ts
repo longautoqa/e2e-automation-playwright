@@ -1,9 +1,9 @@
-import { expect, Page } from '@playwright/test';
-import NavigationComponent from '@pages/components/navigationBar';
-import SideBarComponent from '@pages/components/sideBarComponent';
-import CartComponent from './checkout/components/cart';
+import { Page } from '@playwright/test';
+import NavigationComponent from '@pages/components/navigation-bar';
+import SideBarComponent from '@pages/components/sidebar-component';
+import CartComponent from '../checkout/components/cart';
 import { step } from 'playwright-helpers';
-import BasePage from './basePage';
+import BasePage from '../core/base-page';
 
 export default class HomePage extends BasePage {
 	navComponent: NavigationComponent;
@@ -41,7 +41,7 @@ export default class HomePage extends BasePage {
 
 	@step()
 	async clickProductName(name: string) {
-		await this.productLink(name).click();
+		await this.clickElement(this.productLink(name));
 	}
 
 	@step()
@@ -54,9 +54,7 @@ export default class HomePage extends BasePage {
 	 */
 	@step()
 	async expectNavigateToHomePage() {
-		await expect(this.navComponent.navigationMenu).toBeVisible({
-			timeout: 60_000,
-		});
-		await expect(this.productLinks).toBeVisible();
+		await this.waitForElementVisible(this.navComponent.navigationMenu, 60_000);
+		await this.verifyElementVisible(this.productLinks);
 	}
 }

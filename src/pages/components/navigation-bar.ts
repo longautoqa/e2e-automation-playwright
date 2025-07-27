@@ -1,12 +1,12 @@
 import { test } from '@fixtures/baseUIFixture';
-import AccountPage from '@pages/account/accountPage';
-import BasePage from '@pages/basePage';
-import CheckoutPage from '@pages/checkout/checkoutPage';
-import InvoicePage from '@pages/invoice/invoicePage';
-import LoginPage from '@pages/login/loginPage';
-import ProductPage from '@pages/product/productPage';
-import RegisterPage from '@pages/register/registerPage';
-import { expect, Page } from '@playwright/test';
+
+import AccountPage from '@pages/account/account-page';
+import CheckoutPage from '@pages/checkout/checkout-page';
+import BasePage from '@pages/core/base-page';
+import LoginPage from '@pages/login/login-page';
+import ProductPage from '@pages/product/product-page';
+import RegisterPage from '@pages/register/register-page';
+import { Page } from '@playwright/test';
 import Env from '@utils/env';
 import { step } from 'playwright-helpers';
 
@@ -16,10 +16,6 @@ export default class NavigationComponent extends BasePage {
 	constructor(page: Page) {
 		super(page);
 	}
-
-	/**
-	 * Application contents
-	 */
 
 	/**
 	 * Locators
@@ -48,27 +44,27 @@ export default class NavigationComponent extends BasePage {
 
 	@step()
 	async clickShoppingCart() {
-		await this.cartLink.click();
+		await this.clickElement(this.cartLink);
 	}
 
 	@step()
 	async clickSignInLink() {
-		await this.signinLink.click();
+		await this.clickElement(this.signinLink);
 	}
 
 	@step()
 	async clickHome() {
-		await this.homeLink.click();
+		await this.clickElement(this.homeLink);
 	}
 
 	@step()
 	async clickAccountDropdown() {
-		await this.accountDropdownMenu.click();
+		await this.clickElement(this.accountDropdownMenu);
 	}
 
 	@step()
 	async clickSignOutLink() {
-		await this.signOutLink.click();
+		await this.clickElement(this.signOutLink);
 	}
 
 	@step()
@@ -92,28 +88,13 @@ export default class NavigationComponent extends BasePage {
 	}
 
 	@step()
-	async openInvoicesPageURL() {
-		await this.openURL(InvoicePage.invoiceUri);
-	}
-
-	@step()
-	async openInvoiceDetailsPageURL(id: string) {
-		await this.openURL(`${InvoicePage.invoiceUri}/${id}`);
-	}
-
-	@step()
 	async openProfilePageURL() {
 		await this.openURL(AccountPage.profileUri);
 	}
 
 	/**
-	 * Methods
-	 */
-
-	/**
 	 * Assertions
 	 */
-
 	@step()
 	private async expectNavigateTo(uri: string) {
 		await this.page.waitForURL(new RegExp(`${uri}`));
@@ -141,22 +122,21 @@ export default class NavigationComponent extends BasePage {
 
 	@step()
 	async expectSignedInSuccess() {
-		await expect(this.signinLink).toBeHidden();
-		// TODO: verify to contains logged in user info
+		await this.verifyElementHidden(this.signinLink);
 	}
 
 	@step()
 	async expectCartQuantity(total: number) {
-		await expect(this.cartQty).toHaveText(total.toString());
+		await this.verifyElementText(this.cartQty, total.toString());
 	}
 
 	@step()
 	async expectShoppingCartHidden() {
-		await expect(this.cartLink).toBeHidden();
+		await this.verifyElementHidden(this.cartLink);
 	}
 
 	@step()
 	async expectAccountDropdownShown() {
-		await expect(this.accountDropdownBox).toBeVisible();
+		await this.verifyElementVisible(this.accountDropdownBox);
 	}
 }

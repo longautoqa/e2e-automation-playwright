@@ -1,11 +1,11 @@
-import { expect, Page } from '@playwright/test';
+import { Page } from '@playwright/test';
 import { step } from 'playwright-helpers';
 
 import LoginComponent from '@pages/components/login';
 import CartComponent from './components/cart';
 import AddressComponent from '@pages/components/address';
 import PaymentComponent from './components/payment';
-import BasePage from '@pages/basePage';
+import BasePage from '@pages/core/base-page';
 
 export default class CheckoutPage extends BasePage {
 	static readonly checkoutUri = 'checkout';
@@ -55,12 +55,12 @@ export default class CheckoutPage extends BasePage {
 	 */
 	@step()
 	async clickProcessToCheckout() {
-		await this.processToCheckoutBtn.click();
+		await this.clickElement(this.processToCheckoutBtn);
 	}
 
 	@step()
 	async clickConfirm() {
-		await this.confirmBtn.click();
+		await this.clickElement(this.confirmBtn);
 	}
 
 	/**
@@ -68,46 +68,47 @@ export default class CheckoutPage extends BasePage {
 	 */
 	@step()
 	async expectProcessToCheckoutDisabled() {
-		await expect(this.processToCheckoutBtn).toBeDisabled();
+		await this.verifyElementDisabled(this.processToCheckoutBtn);
 	}
 
 	@step()
 	async expectNavigateToCartStep() {
-		await expect(this.currentStep).toContainText(this.cartTxt);
+		await this.verifyElementTextContains(this.currentStep, this.cartTxt);
 	}
 
 	@step()
 	async expectNavigateToSignInStep() {
-		await expect(this.signInStep).not.toContainText(this.loggedInTxt);
+		await this.verifyElementTextNotContains(this.signInStep, this.loggedInTxt);
 	}
 
 	@step()
 	async expectNavigateToSignedInStep() {
-		await expect(this.signInStep).toContainText(this.loggedInTxt);
+		await this.verifyElementTextContains(this.signInStep, this.loggedInTxt);
 	}
 
 	@step()
 	async expectToNavigateToBillingAddressStep() {
-		await expect(this.addressStepTitle).toHaveText(this.billingAddressTxt);
+		await this.verifyElementText(this.addressStepTitle, this.billingAddressTxt);
 	}
 
 	@step()
 	async expectNavigateToPaymentStep() {
-		await expect(this.paymentStepTitle).toHaveText(this.paymentTxt);
+		await this.verifyElementText(this.paymentStepTitle, this.paymentTxt);
 	}
 
 	@step()
 	async expectSignedInSuccess() {
-		await expect(this.signInMsg).toContainText(this.signedInSucceededTxt);
+		await this.verifyElementTextContains(
+			this.signInMsg,
+			this.signedInSucceededTxt
+		);
 	}
 
 	@step()
 	async expectPaymentSuccessMsg() {
-		await expect(this.paymentSuccessMsg).toHaveText(this.paymentSuccessTxt);
-	}
-
-	@step()
-	async expectPaymentStepOpened() {
-		// await expect(this.payment)
+		await this.verifyElementText(
+			this.paymentSuccessMsg,
+			this.paymentSuccessTxt
+		);
 	}
 }
