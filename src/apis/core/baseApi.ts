@@ -13,9 +13,15 @@ export default class BaseApi {
 		this.baseUrl = baseUrl || Env.API_URL;
 	}
 
-	// Helper method to build full URL
+	// Helper method to build full URL with proper slash handling
 	protected buildUrl(path: string): string {
-		return `${this.baseUrl}${path}`;
+		// Remove leading slash from path if it exists
+		const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+		
+		// Ensure baseUrl ends with slash
+		const cleanBaseUrl = this.baseUrl.endsWith('/') ? this.baseUrl : `${this.baseUrl}/`;
+		
+		return `${cleanBaseUrl}${cleanPath}`;
 	}
 
 	// CRUD methods with automatic URL construction
