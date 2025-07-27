@@ -8,7 +8,7 @@ import { validateJsonSchema } from '@apiUtils/validateJsonSchema';
 import { RandomUtils } from '@utils/randomize';
 import { createHeaders } from '@apiUtils/authUtils';
 import Env from '@utils/env';
-import { Headers } from '@apisCore/baseApi';
+import { Headers } from '@apis/core/types';
 
 test.describe('Cart API feature', async () => {
 	let headers: Headers;

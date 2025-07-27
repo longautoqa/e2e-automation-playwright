@@ -3,7 +3,7 @@ import { request } from '@playwright/test';
 import CartApi from '@apis/cart/cartApi';
 import { extractField } from '@apiUtils/responseUtils';
 import { AddProductToCart } from '@apis/cart/types';
-import { Headers } from '@apisCore/baseApi';
+import { Headers } from '@apis/core/types';
 
 export async function createCart(headers: Headers) {
 	let cartId: string;
