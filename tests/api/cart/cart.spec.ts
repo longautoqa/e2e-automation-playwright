@@ -1,4 +1,4 @@
-import { expect, test } from '@fixtures/baseUIFixture';
+import { expect, test } from '@fixtures/ui-test-fixture';
 
 import CartApi from '@apis/cart/cartApi';
 import { createCart } from '@testDataFactory/cart-data-factory';

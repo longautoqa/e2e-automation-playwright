@@ -1,4 +1,4 @@
-import { test } from '@fixtures/baseUIFixture';
+import { test } from '@fixtures/ui-test-fixture';
 import { TestType } from 'src/types';
 import { RandomUtils } from '@utils/randomize';
 

@@ -2,7 +2,7 @@ import {
 	getRandomInStockProductId,
 	getRandomInStockProductIds,
 } from '@testDataFactory/product-data-factory';
-import { test } from '@fixtures/baseUIFixture';
+import { test } from '@fixtures/ui-test-fixture';
 import { TestType } from 'src/types';
 
 test.describe('Product cart feature as logged in user @cart', async () => {

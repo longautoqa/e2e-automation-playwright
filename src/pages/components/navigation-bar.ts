@@ -1,4 +1,4 @@
-import { test } from '@fixtures/baseUIFixture';
+import { test } from '@fixtures/ui-test-fixture';
 
 import AccountPage from '@pages/account/account-page';
 import CheckoutPage from '@pages/checkout/checkout-page';

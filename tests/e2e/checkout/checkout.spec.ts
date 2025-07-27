@@ -1,4 +1,4 @@
-import { test } from '@fixtures/baseUIFixture';
+import { test } from '@fixtures/ui-test-fixture';
 
 import AddressData from '@testDataStaticCommon/address-data';
 import ProductData from '@testDataStaticProduct/product-data';

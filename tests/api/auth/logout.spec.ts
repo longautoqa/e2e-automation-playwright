@@ -1,6 +1,6 @@
 import { createHeaders } from '@apiUtils/authUtils';
 import Env from '@utils/env';
-import { expect, test } from '@fixtures/baseAPIFixture';
+import { expect, test } from '@fixtures/api-test-fixture';
 import { extractField } from '@apiUtils/responseUtils';
 import UserApi from '@apis/user/userApi';
 import { TestType } from 'src/types';

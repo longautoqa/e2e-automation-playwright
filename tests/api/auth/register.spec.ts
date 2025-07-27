@@ -1,4 +1,4 @@
-import { expect, test } from '@fixtures/baseAPIFixture';
+import { expect, test } from '@fixtures/api-test-fixture';
 import { createRandomUserBody } from '@testDataFactory/auth-data-factory';
 import { createHeaders } from '@apiUtils/authUtils';
 import { extractField } from '@apiUtils/responseUtils';

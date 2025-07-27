@@ -1,4 +1,4 @@
-import { expect, test } from '@fixtures/baseAPIFixture';
+import { expect, test } from '@fixtures/api-test-fixture';
 
 import Env from '@utils/env';
 import { extractField } from '@apiUtils/responseUtils';

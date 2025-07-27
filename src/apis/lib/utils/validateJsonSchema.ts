@@ -1,4 +1,4 @@
-import { expect } from '@fixtures/baseAPIFixture';
+import { expect } from '@fixtures/api-test-fixture';
 import Ajv from 'ajv';
 
 export async function validateJsonSchema(

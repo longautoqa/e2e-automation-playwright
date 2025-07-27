@@ -1,4 +1,4 @@
-import { expect } from '@fixtures/baseAPIFixture';
+import { expect } from '@fixtures/api-test-fixture';
 import { request } from '@playwright/test';
 import CartApi from '@apis/cart/cartApi';
 import { extractField } from '@apiUtils/responseUtils';
