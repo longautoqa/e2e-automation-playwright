@@ -1,5 +1,5 @@
 import ProductData from '@testDataStaticProduct/product-data';
-import { test } from '@fixtures/baseUIFixture';
+import { test } from '@fixtures/ui-test-fixture';
 import { TestType } from 'src/types';
 
 test.describe('Product feature', async () => {

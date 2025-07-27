@@ -1,4 +1,4 @@
-import { expect, test } from '@fixtures/baseUIFixture';
+import { expect, test } from '@fixtures/ui-test-fixture';
 
 import CartApi from '@apis/cart/cartApi';
 import { createCart } from '@testDataFactory/cart-data-factory';
@@ -8,7 +8,7 @@ import { validateJsonSchema } from '@apiUtils/validateJsonSchema';
 import { RandomUtils } from '@utils/randomize';
 import { createHeaders } from '@apiUtils/authUtils';
 import Env from '@utils/env';
-import { Headers } from '@apisCore/baseApi';
+import { Headers } from '@apis/core/types';
 
 test.describe('Cart API feature', async () => {
 	let headers: Headers;

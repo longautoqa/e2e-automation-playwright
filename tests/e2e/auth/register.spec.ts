@@ -1,5 +1,5 @@
 import { createRandomUserBody } from '@testDataFactory/auth-data-factory';
-import { test } from '@fixtures/baseUIFixture';
+import { test } from '@fixtures/ui-test-fixture';
 import { TestType } from 'src/types';
 
 test.describe('Register user feature @auth', async () => {

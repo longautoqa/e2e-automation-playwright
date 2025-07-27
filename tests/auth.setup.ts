@@ -1,5 +1,5 @@
-import { test as setup } from '@fixtures/baseUIFixture';
-import { expect } from '@fixtures/baseAPIFixture';
+import { test as setup } from '@fixtures/ui-test-fixture';
+import { expect } from '@fixtures/api-test-fixture';
 
 import UserApi from '@apis/user/userApi';
 import Env from '@utils/env';

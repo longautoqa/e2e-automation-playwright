@@ -1,4 +1,4 @@
-import { test, expect } from '@fixtures/baseUIFixture';
+import { test, expect } from '@fixtures/ui-test-fixture';
 import { TestType } from 'src/types';
 
 test.describe('[Visual tests] User page', async () => {

@@ -1,4 +1,4 @@
-import { test, expect } from '@fixtures/baseUIFixture';
+import { test, expect } from '@fixtures/ui-test-fixture';
 import { MockApi } from '@mock/commonMockApi';
 import cartItems from '@testDataVisual/cart/cart-items.json';
 import AddressData from '@testDataStatic/common/address-data';

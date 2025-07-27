@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import { expect } from '@fixtures/baseAPIFixture';
+import { expect } from '@fixtures/api-test-fixture';
 import { request } from '@playwright/test';
 import ProductApi from '@apis/product/productApi';
 

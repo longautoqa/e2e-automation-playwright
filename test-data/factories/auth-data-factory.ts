@@ -1,5 +1,5 @@
 import UserApi from '@apis/user/userApi';
-import { expect } from '@fixtures/baseAPIFixture';
+import { expect } from '@fixtures/api-test-fixture';
 import { request } from '@playwright/test';
 import { RegisterUser } from '@apis/user/types';
 import { en, Faker } from '@faker-js/faker';

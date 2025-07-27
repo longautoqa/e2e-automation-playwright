@@ -1,6 +1,6 @@
 import { extractField } from '@apiUtils/responseUtils';
 import { validateJsonSchema } from '@apiUtils/validateJsonSchema';
-import { test, expect } from '@fixtures/baseUIFixture';
+import { test, expect } from '@fixtures/ui-test-fixture';
 import ProductApi from '@apis/product/productApi';
 import { TestType } from 'src/types';
 import { RandomUtils } from '@utils/randomize';
