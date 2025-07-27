@@ -7,6 +7,12 @@ export default class BaseApi {
 	protected headers: Headers;
 	protected baseUrl: string;
 
+	// Default headers for all API requests
+	private readonly defaultHeaders: Headers = {
+		'Content-Type': 'application/json',
+		Accept: 'application/json',
+	};
+
 	constructor(request: APIRequestContext, headers: Headers, baseUrl?: string) {
 		this.request = request;
 		this.headers = headers;
@@ -17,46 +23,53 @@ export default class BaseApi {
 	protected buildUrl(path: string): string {
 		// Remove leading slash from path if it exists
 		const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-		
 		// Ensure baseUrl ends with slash
-		const cleanBaseUrl = this.baseUrl.endsWith('/') ? this.baseUrl : `${this.baseUrl}/`;
-		
+		const cleanBaseUrl = this.baseUrl.endsWith('/')
+			? this.baseUrl
+			: `${this.baseUrl}/`;
+
 		return `${cleanBaseUrl}${cleanPath}`;
 	}
 
-	// CRUD methods with automatic URL construction
-	async get(path: string, options: RequestOptions = {}) {
-		return await this.request.get(this.buildUrl(path), {
-			headers: this.headers,
+	// Private common method to handle all HTTP operations
+	private async makeRequest(
+		method: 'get' | 'post' | 'put' | 'patch' | 'delete',
+		path: string,
+		options: RequestOptions = {}
+	) {
+		const url = this.buildUrl(path);
+		const mergedHeaders = {
+			...this.defaultHeaders,
+			...this.headers,
+			...options.headers,
+		};
+
+		const requestOptions = {
 			...options,
-		});
+			headers: mergedHeaders,
+		};
+
+		return await this.request[method](url, requestOptions);
+	}
+
+	// CRUD methods using the common request handler
+	async get(path: string, options: RequestOptions = {}) {
+		return await this.makeRequest('get', path, options);
 	}
 
 	async post(path: string, options: RequestOptions = {}) {
-		return await this.request.post(this.buildUrl(path), {
-			headers: this.headers,
-			...options,
-		});
+		return await this.makeRequest('post', path, options);
 	}
 
 	async put(path: string, options: RequestOptions = {}) {
-		return await this.request.put(this.buildUrl(path), {
-			headers: this.headers,
-			...options,
-		});
+		return await this.makeRequest('put', path, options);
 	}
 
 	async patch(path: string, options: RequestOptions = {}) {
-		return await this.request.patch(this.buildUrl(path), {
-			headers: this.headers,
-			...options,
-		});
+		return await this.makeRequest('patch', path, options);
 	}
 
 	async delete(path: string, options: RequestOptions = {}) {
-		return await this.request.delete(this.buildUrl(path), {
-			headers: this.headers,
-			...options,
-		});
+		return await this.makeRequest('delete', path, options);
 	}
 }

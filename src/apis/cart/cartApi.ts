@@ -27,9 +27,7 @@ export default class CartApi extends BaseApi {
 	}
 
 	async removeProduct(cartId: string, productId: string) {
-		return await this.delete(
-			`${CartApi.CART}/${cartId}/product/${productId}`
-		);
+		return await this.delete(`${CartApi.CART}/${cartId}/product/${productId}`);
 	}
 
 	async deleteCart(cartId: string) {
