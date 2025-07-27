@@ -1,56 +1,38 @@
-import BaseApi, { Headers } from '@apis/baseAPI';
+import BaseApi from '@apisCore/baseApi';
+import { Headers } from '@apisCore/types';
 import { APIRequestContext } from '@playwright/test';
-import Env from '@utils/env';
 import { AddProductToCart } from './types';
 
 export default class CartApi extends BaseApi {
-	static readonly cartEndpoint = 'carts';
-
-	private endpoint: string;
+	static readonly CART_ENDPOINT = 'carts';
 
 	constructor(request: APIRequestContext, headers: Headers) {
 		super(request, headers);
-		this.endpoint = Env.API_URL + CartApi.cartEndpoint;
 	}
 
 	async createCart() {
-		return await this.request.post(this.endpoint, {
-			headers: this.headers,
-		});
+		return await this.post(CartApi.CART_ENDPOINT);
 	}
 
 	async addProductToCart(cartId: string, data: AddProductToCart) {
-		return await this.request.post(this.endpoint + `/${cartId}`, {
-			data: data,
-			headers: this.headers,
-		});
+		return await this.post(`${CartApi.CART_ENDPOINT}/${cartId}`, { data });
 	}
 
 	async getCart(cartId: string) {
-		return await this.request.get(this.endpoint + `/${cartId}`, {
-			headers: this.headers,
-		});
+		return await this.get(`${CartApi.CART_ENDPOINT}/${cartId}`);
 	}
 
 	async updateProductQty(cartId: string, data: any) {
-		return await this.request.put(this.endpoint + `/${cartId}`, {
-			data: data,
-			headers: this.headers,
-		});
+		return await this.put(`${CartApi.CART_ENDPOINT}/${cartId}`, { data });
 	}
 
 	async removeProduct(cartId: string, productId: string) {
-		return await this.request.delete(
-			`${this.endpoint}/${cartId}/product/${productId}`,
-			{
-				headers: this.headers,
-			}
+		return await this.delete(
+			`${CartApi.CART_ENDPOINT}/${cartId}/product/${productId}`
 		);
 	}
 
 	async deleteCart(cartId: string) {
-		return await this.request.delete(this.endpoint + `/${cartId}`, {
-			headers: this.headers,
-		});
+		return await this.delete(`${CartApi.CART_ENDPOINT}/${cartId}`);
 	}
 }

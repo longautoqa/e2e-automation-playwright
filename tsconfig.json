@@ -5,6 +5,7 @@
 		"resolveJsonModule": true,
 		"paths": {
 			"@apis/*": ["src/apis/*"],
+			"@apisCore/*": ["src/apis/core/*"],
 			"@fixtures/*": ["src/fixtures/*"],
 			"@pages/*": ["src/pages/*"],
 			"@helpers/*": ["src/helpers/*"],
