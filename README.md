@@ -10,6 +10,21 @@ A comprehensive testing framework that
 - Combines API, E2E, Visual testing in one solution
 - Integrated with CI/CD pipelines and automated reporting systems.
 
+### Sensitive Data Management
+**⚠️ IMPORTANT: Sensitive variables should be stored in CI/CD environments, not in local .env files**
+
+The following sensitive variables should be stored as secrets in your CI/CD environments (GitHub Actions/Jenkins) and NOT committed to version control:
+
+#### Required Sensitive Variables
+- `CUSTOMER_01_EMAIL` - First customer account email
+- `CUSTOMER_01_PASSWORD` - First customer account password
+- `CUSTOMER_02_EMAIL` - Second customer account email
+- `CUSTOMER_02_PASSWORD` - Second customer account password
+- `ADMIN_EMAIL` - Admin account email
+- `ADMIN_PASSWORD` - Admin account password
+
+**Note:** These are default test credentials provided by the website (practicesoftwaretesting.com) for automated testing purposes. They are not real user accounts and are publicly available, which is why they are stored in .env files for development convenience.
+
 ### Screenshots
 
 <img width="842" alt="image" src="https://github.com/user-attachments/assets/2a1575fc-7ebb-42a0-8a2e-e353659b7619" />
